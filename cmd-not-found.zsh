@@ -16,6 +16,8 @@ command_not_found_handler() {
     		echo "Installing $pkgname"
             if which pamac>/dev/null; then
                 pamac install $pkgname
+            elif which yay>/dev/null; then
+                yay -S $pkgname
             else
                 sudo pacman -S $pkgname
             fi
